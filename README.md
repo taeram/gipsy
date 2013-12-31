@@ -56,5 +56,12 @@ To get your system's IP address:
 curl http://your.herokuapp.com/
 ```
 
+Response:
+```json
+{
+    "address": "184.71.226.22"
+}
+```
+
 If you're using JSON in a shell script, you might try [jq](http://stedolan.github.io/jq/)
 to simplify parsing the JSON.
