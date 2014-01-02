@@ -65,3 +65,7 @@ Response:
 
 If you're using JSON in a shell script, you might try [jq](http://stedolan.github.io/jq/)
 to simplify parsing the JSON.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/taeram/gipsy/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
