@@ -1,8 +1,12 @@
-from app import app
-from flask import request
+from app import app, \
+                cors_header
+from flask import request, \
+                  make_response
 import json
 
+
 @app.route('/', methods=['GET'])
+@cors_header
 def index():
     if 'X-Forwarded-For' in request.headers:
         ipAddress = request.headers['X-Forwarded-For']
