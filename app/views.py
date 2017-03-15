@@ -5,6 +5,11 @@ from flask import request, \
 import json
 
 
+@app.route('/.well-known/acme-challenge/<filename>')
+def letsencrypt(filename):
+    return send_from_directory(os.path.join(app.root_path, '../.well-known/acme-challenge/'), filename)
+
+
 @app.route('/', methods=['GET'])
 @cors_header
 def index():
