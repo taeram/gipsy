@@ -1,8 +1,10 @@
 from app import app, \
                 cors_header
 from flask import request, \
-                  make_response
+                  make_response, \
+                  send_from_directory
 import json
+import os
 
 
 @app.route('/.well-known/acme-challenge/<filename>')
