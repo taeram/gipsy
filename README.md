@@ -7,10 +7,8 @@ Requirements
 ============
 You'll need the following:
 
-* A [Heroku](https://www.heroku.com/) account, if you want to deploy to Heroku.
-* [Python 2.7.3](http://www.python.org/)
-* [pip](https://github.com/pypa/pip)
-* [Virtualenv](https://github.com/pypa/virtualenv)
+* [Docker](https://www.docker.com/)
+* [Python 2.7](http://www.python.org/)
 
 Setup
 =====
@@ -28,23 +26,12 @@ Local development setup:
     pip install -r requirements.txt
 
     # Start the application
-    python server.py
+    python main.py
 ```
 
-Heroku setup:
+Docker setup:
 ```bash
-    # Clone the repo
-    git clone git@github.com:taeram/gipsy.git
-    cd ./gipsy
-
-    # Create your Heroku app
-    heroku apps:create
-
-    # Set the flask environment
-    heroku config:set FLASK_ENV=production
-
-    # Push to Heroku
-    git push heroku master
+    docker run --publish 8080:80 taeram/gipsy:latest
 ```
 
 Usage
@@ -53,7 +40,7 @@ Usage
 To get your system's IP address:
 
 ```bash
-curl http://your.herokuapp.com/
+curl http://localhost:8080/
 ```
 
 Response:
@@ -65,7 +52,3 @@ Response:
 
 If you're using JSON in a shell script, you might try [jq](http://stedolan.github.io/jq/)
 to simplify parsing the JSON.
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/taeram/gipsy/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
