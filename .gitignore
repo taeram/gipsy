@@ -1,6 +1,7 @@
 # Lets Encrypt
 .well-known
 
+\.idea
 *.py[cod]
 
 # C extensions
