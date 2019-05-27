@@ -4,6 +4,7 @@ from flask import request, \
                   make_response, \
                   send_from_directory
 import json
+import re
 import os
 
 
@@ -16,7 +17,7 @@ def index():
         ipAddress = request.remote_addr
 
     response = json.dumps({
-        "address": ipAddress
+        "address": re.sub(r",.+$", "", ipAddress)
     })
 
     return app.response_class(response=response, mimetype='application/json')
