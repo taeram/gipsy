@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  python:
+    image: tiangolo/uwsgi-nginx-flask:python2.7
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.frontend.entryPoints=http,https"
+      - "traefik.frontend.rule=Host:gipsy.docker"
+      - "traefik.protocol=http"
+      - "traefik.port=80"
+    environment:
+      FLASK_ENV: production
+      LANGUAGE: en_US.UTF-8
+      LANG: en_US.UTF-8
+      LC_ALL: en_US.UTF-8
+    networks:
+      default:
+      traefik:
+    restart: unless-stopped
+    volumes:
+      - ./:/app:delegated
+      - python_site_packages:/usr/local/lib/python2.7/site-packages
+
+networks:
+  traefik:
+    external: true
+
+volumes:
+  python_site_packages:
